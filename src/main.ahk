@@ -14,3 +14,14 @@
 
   WinActivate "ahk_exe WindowsTerminal.exe"
 }
+
+#b::
+{
+    if !WinExist("ahk_exe zen.exe")  ; Replace with actual class
+    {
+        Run "zen.exe"
+        WinWait "ahk_exe zen.exe"
+    }
+    WinActivate "ahk_exe zen.exe"
+}
+
