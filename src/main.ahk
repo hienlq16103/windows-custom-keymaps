@@ -1,6 +1,9 @@
 #Esc:: Run "Rundll32.exe user32.dll,LockWorkStation"
+
 #Space::!Space
+
 #q:: WinClose "A"
+
 #t::
 {
   if !WinExist("ahk_exe WindowsTerminal.exe")
