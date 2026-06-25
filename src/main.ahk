@@ -1,27 +1,23 @@
+terminalApp := {exe: "wt.exe", process: "ahk_exe WindowsTerminal.exe"}
+browserApp := {exe: "zen.exe", process: "ahk_exe zen.exe"}
+
+LaunchOrActivate(app)
+{
+    if !WinExist(app.process)
+    {
+        Run app.exe
+        WinWait app.process
+    }
+
+    WinActivate app.process
+}
+
 #Esc:: Run "Rundll32.exe user32.dll,LockWorkStation"
 
 #Space::!Space
 
 #q:: WinClose "A"
 
-#t::
-{
-  if !WinExist("ahk_exe WindowsTerminal.exe")
-  {
-    Run "wt.exe"
-    WinWait "ahk_exe WindowsTerminal.exe"
-  }
+#t:: LaunchOrActivate(terminalApp)
 
-  WinActivate "ahk_exe WindowsTerminal.exe"
-}
-
-#b::
-{
-    if !WinExist("ahk_exe zen.exe")  ; Replace with actual class
-    {
-        Run "zen.exe"
-        WinWait "ahk_exe zen.exe"
-    }
-    WinActivate "ahk_exe zen.exe"
-}
-
+#b:: LaunchOrActivate(browserApp)
